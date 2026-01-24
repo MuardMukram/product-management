@@ -23,5 +23,15 @@ echo $name;
 echo $username;
 echo $password; 
 
-$sql = "INSERT INTO users (name, username, password, email) values('name', 'sername', 'assword', 'mail')";
+
+$sql = "INSERT INTO users (name, username, password, email) values('$name', '$username', '$password', '$email')";
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+$conn->close();
+
 ?>
+
