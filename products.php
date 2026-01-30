@@ -1,6 +1,17 @@
 <?php
     include 'conn.php';
+session_start();
 
+// session validation
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+
+// 🍪 set cookie (valid for 1 day)
+setcookie("visited_products", "yes", time() + (86400), "/");
+
+include 'conn.php';
 ?>
 <!DOCTYPE html>
 <html>
